@@ -24,6 +24,7 @@ I] The First one is the -- "Strictest" implementation of the Pattern
 
 
 # Class Diagram
+
 ```mermaid
 classDiagram
     %% Product Interface
@@ -70,8 +71,6 @@ classDiagram
     Client --> CircleFactory : uses
     Client --> RectangleFactory : uses
 ```
-
-
 
 ## Explanation
 Here’s a short description you can add along with the diagram:
