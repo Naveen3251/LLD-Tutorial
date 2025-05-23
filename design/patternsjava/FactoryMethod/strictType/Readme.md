@@ -1,4 +1,4 @@
-There are 3 common implementation of factory method
+# First method-Strict Type
 
 I] The First one is the -- "Strictest" implementation of the Pattern
 
@@ -22,4 +22,69 @@ I] The First one is the -- "Strictest" implementation of the Pattern
    DIS-ADVANTAGE:
     1. Every new product has to subclass the creator class and implement its factory method
 
+
+# Class Diagram
+```mermaid
+classDiagram
+    %% Product Interface
+    class Shape {
+        <<interface>>
+        +draw()
+    }
+
+    %% Concrete Products
+    class Circle {
+        +draw()
+    }
+
+    class Rectangle {
+        +draw()
+    }
+
+    Shape <|.. Circle
+    Shape <|.. Rectangle
+
+    %% Creator
+    class AbstractShapeFactory {
+        #factoryMethod() Shape
+        +getShape() Shape
+    }
+
+    %% Concrete Creators
+    class CircleFactory {
+        +factoryMethod() Shape
+    }
+
+    class RectangleFactory {
+        +factoryMethod() Shape
+    }
+
+    AbstractShapeFactory <|-- CircleFactory
+    AbstractShapeFactory <|-- RectangleFactory
+
+    %% Client
+    class Client {
+        +main(String[] args)
+    }
+
+    Client --> CircleFactory : uses
+    Client --> RectangleFactory : uses
+```
+
+
+
+## Explanation
+Here’s a short description you can add along with the diagram:
+
+This is a strict implementation of the Factory Method Design Pattern in Java. The pattern decouples the object creation logic from the client code using an abstract factory method.
+
+Shape: Product interface declaring draw().
+
+Circle, Rectangle: Concrete products implementing Shape.
+
+AbstractShapeFactory: Creator class declaring the factory method factoryMethod().
+
+CircleFactory, RectangleFactory: Concrete creators that override factoryMethod() to instantiate specific shapes.
+
+Client: Uses the factories to create and use shapes without knowing their concrete classes.
    
