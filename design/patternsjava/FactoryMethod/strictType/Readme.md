@@ -75,17 +75,10 @@ classDiagram
 ```
 
 ## Explanation
-Here’s a short description you can add along with the diagram:
-
-This is a strict implementation of the Factory Method Design Pattern in Java. The pattern decouples the object creation logic from the client code using an abstract factory method.
-
-Shape: Product interface declaring draw().
-
-Circle, Rectangle: Concrete products implementing Shape.
-
-AbstractShapeFactory: Creator class declaring the factory method factoryMethod().
-
-CircleFactory, RectangleFactory: Concrete creators that override factoryMethod() to instantiate specific shapes.
-
-Client: Uses the factories to create and use shapes without knowing their concrete classes.
-   
+| **Component**        | **Purpose**                                                              |
+| -------------------- | ------------------------------------------------------------------------ |
+| `Product`            | Interface or abstract class for product types                            |
+| `ConcreteProductA/B` | Concrete implementations of the `Product` interface                      |
+| `Creator`            | Abstract class declaring `factoryMethod()` and defining `getProduct()`   |
+| `ConcreteCreatorA/B` | Subclasses implementing `factoryMethod()` to return a specific `Product` |
+| `Client`             | Uses `Creator` to get a `Product`, unaware of the exact product class    |
