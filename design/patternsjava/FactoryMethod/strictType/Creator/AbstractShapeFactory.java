@@ -1,6 +1,6 @@
-package design.patternsjava.FactoryMethod.strictType.java.Creator;
+package design.patternsjava.FactoryMethod.strictType.Creator;
 
-import design.patternsjava.FactoryMethod.strictType.java.Product.Shape;
+import design.patternsjava.FactoryMethod.strictType.Product.Shape;
 
 public abstract class  AbstractShapeFactory {
 
