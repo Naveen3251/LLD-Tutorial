@@ -28,48 +28,50 @@ I] The First one is the -- "Strictest" implementation of the Pattern
 ```mermaid
 classDiagram
     %% Product Interface
-    class Shape {
+    class Product {
         <<interface>>
-        +draw()
+        +operation()
     }
 
     %% Concrete Products
-    class Circle {
-        +draw()
+    class ConcreteProductA {
+        +operation()
     }
 
-    class Rectangle {
-        +draw()
+    class ConcreteProductB {
+        +operation()
     }
 
-    Shape <|.. Circle
-    Shape <|.. Rectangle
+    Product <|.. ConcreteProductA
+    Product <|.. ConcreteProductB
 
-    %% Creator
-    class AbstractShapeFactory {
-        #factoryMethod() Shape
-        +getShape() Shape
+    %% Abstract Creator
+    class Creator {
+        #factoryMethod() Product
+        +getProduct() Product
     }
 
     %% Concrete Creators
-    class CircleFactory {
-        +factoryMethod() Shape
+    class ConcreteCreatorA {
+        +factoryMethod() Product
     }
 
-    class RectangleFactory {
-        +factoryMethod() Shape
+    class ConcreteCreatorB {
+        +factoryMethod() Product
     }
 
-    AbstractShapeFactory <|-- CircleFactory
-    AbstractShapeFactory <|-- RectangleFactory
+    Creator <|-- ConcreteCreatorA
+    Creator <|-- ConcreteCreatorB
 
     %% Client
     class Client {
-        +main(String[] args)
+        +main()
     }
 
-    Client --> CircleFactory : uses
-    Client --> RectangleFactory : uses
+    Client --> ConcreteCreatorA : creates
+    Client --> ConcreteCreatorB : creates
+    Client --> Product : uses
+
 ```
 
 ## Explanation
